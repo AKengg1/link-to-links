@@ -50,7 +50,7 @@ export default async function PublicProfile({
             rel="noopener noreferrer"
             className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium transition hover:border-[#7C3AED]/50 hover:bg-white/10"
           >
-            {["github", "linkedin", "twitter", "snapchat","instagram", "facebook", "youtube", "tiktok", "pinterest", "custom"].includes(link.platform) && (
+            {["github", "linkedin", "twitter", "snapchat","instagram", "facebook", "youtube", "pinterest", "custom"].includes(link.platform) && (
               <Image
                 src={`/${link.platform}.png`}
                 alt={link.platform}
