@@ -32,7 +32,7 @@ export default function UsernameSetup({
 
       <div className="flex flex-wrap items-center gap-y-1 overflow-hidden rounded-lg border border-white/10 bg-white/5 sm:flex-nowrap">
         <span className="pl-3 py-2 text-xs text-white/40 sm:py-0 sm:text-sm">
-          link2links.io/
+          link-to-links.vercel.app/
         </span>
         <input
           name="username"

@@ -34,7 +34,7 @@ export default async function PublicProfile({
           className="h-full w-full object-cover"
         />
       </div>
-      <h1 className="mt-4 text-lg font-semibold">{profile.username}</h1>
+      <h1 className="mt-4 text-lg font-semibold">@{profile.username}</h1>
       {profile.bio && (
         <p className="mt-1 max-w-xs text-center text-sm text-white/50">
           {profile.bio}
