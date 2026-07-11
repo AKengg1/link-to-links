@@ -10,7 +10,7 @@ type Link = {
   platform: string;
 };
 
-const PLATFORMS = ["instagram", "linkedin", "twitter", "snapchat", "facebook", "youtube", "github","pinterest", "custom"];
+const PLATFORMS = ["instagram", "linkedin", "twitter", "snapchat", "facebook", "youtube", "github", "pinterest", "custom"];
 
 export default function DashboardClient({
   initialLinks,
@@ -33,46 +33,56 @@ export default function DashboardClient({
   }
 
   return (
-    <div className="mt-4 grid gap-4 px-4 sm:mt-6 sm:gap-6 sm:px-0 sm:grid-cols-2">
+    <div className="mt-4 grid gap-4 sm:mt-6 sm:gap-6 sm:grid-cols-2">
       <form
         action={handleSubmit}
-        className="flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5"
+        className="flex min-w-0 flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5"
       >
         <h2 className="text-sm font-semibold text-white/70">Add a link</h2>
         <input
           name="title"
-          placeholder="Title (e.g. My GitHub)"
+          placeholder="Title (e.g. My Instagram)"
           required
-          className="h-11 sm:h-10 rounded-lg border border-white/10 bg-white/5 px-3 text-base sm:text-sm outline-none focus:border-[#7C3AED]/60"
+          className="h-11 w-full min-w-0 rounded-lg border border-white/10 bg-white/5 px-3 text-base outline-none focus:border-[#7C3AED]/60 sm:h-10 sm:text-sm"
         />
         <input
           name="url"
           type="url"
           placeholder="https://..."
           required
-          className="h-11 sm:h-10 rounded-lg border border-white/10 bg-white/5 px-3 text-base sm:text-sm outline-none focus:border-[#7C3AED]/60"
+          className="h-11 w-full min-w-0 rounded-lg border border-white/10 bg-white/5 px-3 text-base outline-none focus:border-[#7C3AED]/60 sm:h-10 sm:text-sm"
         />
-        <select
-          name="platform"
-          required
-          className="h-11 sm:h-10 rounded-lg border border-white/10 bg-white/5 px-3 text-base sm:text-sm outline-none focus:border-[#7C3AED]/60"
-        >
-          {PLATFORMS.map((p) => (
-            <option key={p} value={p} className="bg-[#0B0714]">
-              {p}
-            </option>
-          ))}
-        </select>
+        <div className="relative w-full min-w-0">
+          <select
+            name="platform"
+            required
+            className="h-11 w-full min-w-0 appearance-none rounded-lg border border-white/10 bg-white/5 px-3 pr-8 text-base outline-none focus:border-[#7C3AED]/60 sm:h-10 sm:text-sm"
+          >
+            {PLATFORMS.map((p) => (
+              <option key={p} value={p} className="bg-[#0B0714]">
+                {p}
+              </option>
+            ))}
+          </select>
+          <svg
+            className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/40"
+            viewBox="0 0 20 20"
+            fill="none"
+            stroke="currentColor"
+          >
+            <path d="M6 8l4 4 4-4" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </div>
         <button
           type="submit"
           disabled={isPending}
-          className="mt-1 h-11 sm:h-10 rounded-full bg-gradient-to-r from-[#7C3AED] to-[#EC4899] text-sm font-semibold text-white transition hover:opacity-90 disabled:opacity-50 active:scale-[0.98]"
+          className="mt-1 h-11 w-full rounded-full bg-gradient-to-r from-[#7C3AED] to-[#EC4899] text-sm font-semibold text-white transition hover:opacity-90 active:scale-[0.98] disabled:opacity-50 sm:h-10"
         >
           {isPending ? "Adding..." : "Add link"}
         </button>
       </form>
 
-      <div className="flex flex-col gap-2.5 rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5">
+      <div className="flex min-w-0 flex-col gap-2.5 rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5">
         <h2 className="mb-1 text-sm font-semibold text-white/70">
           Your links ({links.length})
         </h2>
@@ -82,7 +92,7 @@ export default function DashboardClient({
         {links.map((link) => (
           <div
             key={link.id}
-            className="flex items-center justify-between gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2.5 sm:px-4"
+            className="flex min-w-0 items-center justify-between gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2.5 sm:px-4"
           >
             <div className="min-w-0 flex-1">
               <p className="truncate text-sm font-medium">{link.title}</p>

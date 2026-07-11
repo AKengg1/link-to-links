@@ -26,9 +26,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="overflow-x-hidden">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0B0714]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0B0714] overflow-x-hidden`}
       >
         <ClerkProvider afterSignOutUrl="/">
           {children}

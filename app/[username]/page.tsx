@@ -34,7 +34,7 @@ export default async function PublicProfile({
           className="h-full w-full object-cover"
         />
       </div>
-      <h1 className="mt-4 text-lg font-semibold">@{profile.username}</h1>
+      <h1 className="mt-4 text-lg font-semibold">{profile.username}</h1>
       {profile.bio && (
         <p className="mt-1 max-w-xs text-center text-sm text-white/50">
           {profile.bio}
@@ -48,23 +48,27 @@ export default async function PublicProfile({
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium transition hover:border-[#7C3AED]/50 hover:bg-white/10"
+            className="group relative flex items-center gap-4 rounded-xl bg-gradient-to-r from-[#7953bb] to-[#76033d93] p-[2px]"
           >
-            {["github", "linkedin", "twitter", "snapchat","instagram", "facebook", "youtube", "pinterest", "custom"].includes(link.platform) && (
-              <Image
-                src={`/${link.platform}.png`}
-                alt={link.platform}
-                width={20}
-                height={20}
-              />
-            )}
-            {link.title}
+            <div className="flex w-full items-center gap-4 rounded-[10px] bg-[#0B0714]/80 px-5 py-4 text-base font-medium transition group-hover:bg-[#0B0714]">
+              {["github", "linkedin", "twitter", "snapchat","instagram", "facebook", "youtube", "tiktok", "pinterest", "custom"].includes(link.platform) && (
+                <Image
+                  src={`/${link.platform}.png`}
+                  alt={link.platform}
+                  width={32}
+                  height={32}
+                />
+              )}
+              {link.title}
+            </div>
           </a>
         ))}
         {links.length === 0 && (
           <p className="text-center text-sm text-white/30">No links yet.</p>
         )}
       </div>
+
+      <p className="mt-10 text-sm text-blue-900">Nice to meet u 🥰</p>
     </main>
   );
 }
