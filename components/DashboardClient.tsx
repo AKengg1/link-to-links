@@ -10,7 +10,7 @@ type Link = {
   platform: string;
 };
 
-const PLATFORMS = ["github", "linkedin", "twitter", "snapchat","instagram", "facebook", "youtube", "tiktok", "pinterest", "custom"];
+const PLATFORMS = ["instagram", "linkedin", "twitter", "snapchat", "facebook", "youtube", "github","pinterest", "custom"];
 
 export default function DashboardClient({
   initialLinks,
